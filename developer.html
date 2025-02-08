@@ -3,70 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" type="x-icon" href="https://i.hizliresim.com/gnv1j4x.png?_gl=1*1j7vj0w*_ga*OTMwMzA2MzE3LjE3MzEyNDY5NjY.*_ga_M9ZRXYS2YN*MTczNzg0MDM2MS43LjEuMTczNzg0MDM3My40OC4wLjA.">
+    <link rel="shortcut icon" type="x-icon" href="https://i.hizliresim.com/gnv1j4x.png">
     <title>Panelsploit - Developers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            font-family: 'Source Code Pro', monospace;
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #1a1a1a;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #070707;
+            --text-color: #ffffff;
+            --accent-color: #2c2c2c;
+            --hover-color: #333;
+            --border-color: #444;
+            --nav-height: 70px;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
+            box-sizing: border-box;
+            cursor: url('https://i.imgur.com/6wmyrkK.gif'), auto;
         }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            font-family: 'Source Code Pro', monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
         nav {
-            background-color: #1a1a1a;
-            padding: 10px;
-            text-align: center;
+            background-color: var(--bg-darker);
+            height: var(--nav-height);
+            display: flex;
+            justify-content: center;
+            font-family: 'Rajdhani', sans-serif;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: slideDown 0.5s forwards;
         }
+
+        @keyframes slideDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         nav a {
-            color: #ffffff;
-            font-size: 18px;
-            margin: 0 15px;
+            color: var(--text-color);
+            font-size: 19px;
+            margin: 0 25px;
             text-decoration: none;
-            transition: 0.3s;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
         }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
         nav a:hover {
-            color: #ff0000;
+            color: var(--primary-color);
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
         }
+
         .container {
-            margin-top: 30px;
+            margin-top: calc(var(--nav-height) + 20px);
             padding: 20px;
-            max-width: 90%;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
+
         .ascii-art {
             white-space: pre-wrap;
-            font-size: 13px;
-            color: #ff0000;
-            line-height: 1.1;
-            overflow-x: auto;
+            font-size: 15px;
+            color: var(--primary-color);
+            line-height: 1.2;
+            text-align: center;
+            margin: 20px 0 40px;
+            opacity: 0;
+            transform: scale(0.7);
+            animation: fadeInScale 0.7s ease-out forwards;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
         }
 
-        .description {
-            margin-top: 20px;
-            font-size: 16px;
-            line-height: 1.5;
-            text-align: justify;
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+                text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            }
         }
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
-            border: 2px solid #808080;
-            color: #808080;
-            text-decoration: none;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background-color: #808080;
-            color: #0a0a0a;
-        }
+
         .developer-profile {
             display: flex;
             flex-wrap: wrap;
@@ -74,23 +134,34 @@
             gap: 30px;
             margin-top: 30px;
         }
+
         .developer {
-            background-color: #1a1a1a;
+            background-color: var(--secondary-color);
             padding: 20px;
-            width: 200px;
+            width: 225px;
             text-align: center;
             border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        .developer:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255,0,0,0.2);
+        }
+
         .developer img {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             margin-bottom: 15px;
         }
+
         .developer h3 {
             font-size: 18px;
             margin-bottom: 10px;
+            color: var(--text-color);
         }
+
         .developer p {
             font-size: 14px;
             color: #808080;
@@ -103,37 +174,62 @@
         <a href="/-/update.html">Güncellemeler</a>
         <a href="/-/promotion.html">Tanıtım</a>
         <a href="/-/developer.html">Developerler</a>
-        <a href="https://panelsploit.github.io/-/index.html">Download</a>
+        <a href="/-/index.html">Download</a>
     </nav>
 
     <div class="container">
         <div class="ascii-art">
-
-            ████████▄     ▄████████  ▄█    █▄     ▄████████  ▄█        ▄██████▄     ▄███████▄    ▄████████    ▄████████    ▄████████ 
-            ███   ▀███   ███    ███ ███    ███   ███    ███ ███       ███    ███   ███    ███   ███    ███   ███    ███   ███    ███ 
-            ███    ███   ███    █▀  ███    ███   ███    █▀  ███       ███    ███   ███    ███   ███    █▀    ███    ███   ███    █▀  
-            ███    ███  ▄███▄▄▄     ███    ███  ▄███▄▄▄     ███       ███    ███   ███    ███  ▄███▄▄▄      ▄███▄▄▄▄██▀   ███        
-            ███    ███ ▀▀███▀▀▀     ███    ███ ▀▀███▀▀▀     ███       ███    ███ ▀█████████▀  ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ▀███████████ 
-            ███    ███   ███    █▄  ███    ███   ███    █▄  ███       ███    ███   ███          ███    █▄  ▀███████████          ███ 
-            ███   ▄███   ███    ███ ███    ███   ███    ███ ███▌    ▄ ███    ███   ███          ███    ███   ███    ███    ▄█    ███ 
-            ████████▀    ██████████  ▀██████▀    ██████████ █████▄▄██  ▀██████▀   ▄████▀        ██████████   ███    ███  ▄████████▀  
-
+ ████████▄     ▄████████  ▄█    █▄     ▄████████  ▄█        ▄██████▄     ▄███████▄    ▄████████    ▄████████    ▄████████ 
+ ███   ▀███   ███    ███ ███    ███   ███    ███ ███       ███    ███   ███    ███   ███    ███   ███    ███   ███    ███ 
+ ███    ███   ███    █▀  ███    ███   ███    █▀  ███       ███    ███   ███    ███   ███    █▀    ███    ███   ███    █▀  
+ ███    ███  ▄███▄▄▄     ███    ███  ▄███▄▄▄     ███       ███    ███   ███    ███  ▄███▄▄▄      ▄███▄▄▄▄██▀   ███         
+ ███    ███ ▀▀███▀▀▀     ███    ███ ▀▀███▀▀▀     ███       ███    ███ ▀█████████▀  ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ▀███████████ 
+ ███    ███   ███    █▄  ███    ███   ███    █▄  ███       ███    ███   ███          ███    █▄  ▀███████████          ███ 
+ ███   ▄███   ███    ███ ███    ███   ███    ███ ███▌    ▄ ███    ███   ███          ███    ███   ███    ███    ▄█    ███ 
+ ████████▀    ██████████  ▀██████▀    ██████████ █████▄▄██  ▀██████▀   ▄████▀        ██████████   ███    ███  ▄████████▀  
         </div>
 
-        <!-- Developer Profiles -->
         <div class="developer-profile">
             <div class="developer">
-                <img src="https://i.hizliresim.com/ier7dvd.png" alt="Developer 1">
+                <img src="https://i.hizliresim.com/ier7dvd.png" alt="Destroyerr">
                 <h3>Destroyerr</h3>
-                <p>Exploit yazarı ve web pentester olarak, Panelsploit'te gördüğünüz exploit ve payload'ların çoğunu geliştiren,yazan ve test eden kişi.</p>
+                <p>Exploit yazarı ve web pentester Panelsploit'teki exploit ve payload'ların çoğunu geliştiren, yazan ve test eden kişi</p>
             </div>
             <div class="developer">
-                <img src="https://i.hizliresim.com/4cjxtfp.png" alt="Developer 2">
+                <img src="https://i.hizliresim.com/4cjxtfp.png" alt="Vixyum">
                 <h3>Vixyum</h3>
-                <p>Framework yazarı, arayüz tasarımcısı ve web pentester olarak, Panelsploit'te gördüğünüz arayüzü ve exploitlerin belli bir kısmını kodlayan kişi.</p>
+                <p>Framework yazarı, arayüz tasarımcısı ve web pentester Panelsploit arayüzünün tamamını ve exploitlerin belirli bir kısmını kodlayan kişi</p>
             </div>
-            
+            <div class="developer">
+                <img src="https://cdn1.iconfinder.com/data/icons/social-black-buttons/512/anonymous-512.png" alt="Topluluk">
+                <h3>Topluluk</h3>
+                <p>İmhateam ve Turkhackteam forumlarından bizlere destek olan üyeler CVE keşfi ve exploit fikirlerini sağlayanlar</p>
+            </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('contextmenu', function (event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener('copy', function (event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener('paste', function (event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener('selectstart', function (event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener('mousedown', function (event) {
+            if (event.button === 2) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
