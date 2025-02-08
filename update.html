@@ -2,100 +2,187 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="https://i.hizliresim.com/gnv1j4x.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="x-icon" href="https://i.hizliresim.com/gnv1j4x.png?_gl=1*1j7vj0w*_ga*OTMwMzA2MzE3LjE3MzEyNDY5NjY.*_ga_M9ZRXYS2YN*MTczNzg0MDM2MS43LjEuMTczNzg0MDM3My40OC4wLjA.">
-    <title>Panelsploit - Güncellemeler</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Panelsploit - Updates</title>
     <style>
-        body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            font-family: 'Source Code Pro', monospace;
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #1a1a1a;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #070707;
+            --text-color: #ffffff;
+            --accent-color: #2c2c2c;
+            --hover-color: #333;
+            --border-color: #444;
+            --nav-height: 70px;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
+            box-sizing: border-box;
+            cursor: url('https://i.imgur.com/6wmyrkK.gif'), auto;
         }
-        /* Menü stili */
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            font-family: 'Source Code Pro', monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
         nav {
-            background-color: #1a1a1a;
-            padding: 10px;
-            text-align: center;
+            background-color: var(--bg-darker);
+            height: var(--nav-height);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
         }
+
         nav a {
-            color: #ffffff;
-            font-size: 18px;
-            margin: 0 15px;
+            color: var(--text-color);
+            font-size: 19px;
+            margin: 0 25px;
             text-decoration: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
         }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
         nav a:hover {
-            color: #ff0000;
+            color: var(--primary-color);
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
         }
+
         .container {
-            margin-top: 30px;
+            margin-top: calc(var(--nav-height) + 20px);
             padding: 20px;
-            max-width: 90%;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
+
         .ascii-art {
             white-space: pre-wrap;
             font-size: 14px;
-            color: #ff0000;
+            color: var(--primary-color);
             line-height: 1.2;
             overflow-x: auto;
-        }
-        .description {
-            margin-top: 20px;
-            font-size: 16px;
-            line-height: 1.5;
             text-align: center;
+            margin: 20px 0 40px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
         }
-        table {
-            margin-top: 30px;
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-            border-collapse: collapse;
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            }
         }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border: 1px solid #808080;
-        }
-        th {
-            background-color: #1a1a1a;
-            color: #ffffff;
-        }
-        td {
-            background-color: #2a2a2a;
-            color: #ffffff;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
-            border: 2px solid #808080;
-            color: #808080;
-            text-decoration: none;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background-color: #808080;
-            color: #0a0a0a;
+
+      table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px; /* Tablonun kenarlarını yuvarlat */
+    overflow: hidden; /* İçeriğin taşmaması için */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+th {
+    background-color: var(--bg-darker);
+    color: var(--primary-color);
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-top-left-radius: 11px; /* Sol üst köşe yuvarlat */
+    border-top-right-radius: 11px; /* Sağ üst köşe yuvarlat */
+}
+
+tr:nth-child(even) {
+    background-color: rgba(30,30,30,0.5);
+}
+
+tr:hover {
+    background-color: rgba(50,50,50,0.7);
+}
+
+td {
+    background-color: var(--secondary-color);
+    color: #cccccc;
+    border-bottom: 1px solid #333; /* Hücreler arasındaki çizgileri koymak için */
+}
+
+#update-table {
+    max-height: 400px; /* Tablo yüksekliği */
+    overflow-y: auto; /* Dikey kaydırma çubuğu ekle */
+}
+
+/* Son hücrenin alt köşe yuvarlatma */
+tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+
+        #update-table tr:first-child {
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="/-/exploit.html">Exploitler</a>
+        <a href="/-/exploit.html" onclick="showInfo(); return false;">Exploitler</a>
         <a href="/-/update.html">Güncellemeler</a>
         <a href="/-/promotion.html">Tanıtım</a>
         <a href="/-/developer.html">Developerler</a>
-        <a href="https://panelsploit.github.io/-/index.html">Download</a>
+        <a href="/-/index.html">Download</a>
     </nav>
 
     <div class="container">
@@ -108,41 +195,91 @@
 ███    ███   ███        ███    ███   ███    ███     ███       ███    █▄           ███ 
 ███    ███   ███        ███   ▄███   ███    ███     ███       ███    ███    ▄█    ███ 
 ████████▀   ▄████▀      ████████▀    ███    █▀     ▄████▀     ██████████  ▄████████▀  
-                                                                                       
-        </div>
-        
-        <div class="description">
-            Burada Panelsploit güncellemeleri ve yeni eklenen özelliklerle ilgili bilgileri bulabilirsiniz.
         </div>
 
         <table>
-            <tr>
-                <th>Son Güncelleme</th>
-                <th>Versiyon 1.2</th>
-            </tr>
-            <tr>
-                <td>Panelcikabusu.py</td>
-                <td>
-                    <ul>
-                        <li>Yeni exploitler eklendi.</li>
-                        <li>Payload geliştirmeleri tamamlandı.</li>
-                        <li>Arayüzde iyileştirmeler yapıldı.</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>Önceki Güncellemeler</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>Versiyon 1.1</td>
-                <td>Framework haline getirildi.</td>
-            </tr>
-            <tr>
-                <td>Versiyon 1.0</td>
-                <td>İlk sürüm kapalı betaya girdi.</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Sürüm</th>
+                    <th>Değişiklikler</th>
+                </tr>
+            </thead>
+            <tbody id="update-table">
+                <tr>
+                    <td colspan="2">Yükleniyor...</td>
+                </tr>
+            </tbody>
         </table>
     </div>
+
+    <script>
+        async function loadUpdates() {
+            try {
+                const response = await fetch("https://panelsploit.glitch.me/6756889909DANHOOKSUM.txt");
+                if (!response.ok) throw new Error("Güncellemeler yüklenemedi.");
+                
+                const text = await response.text();
+                const lines = text.split("\n").filter(line => line.trim() !== "");
+                
+                const tableBody = document.getElementById("update-table");
+                tableBody.innerHTML = "";
+
+                lines.forEach(line => {
+                    const parts = line.split("|");
+                    if (parts.length < 2) return;
+
+                    const version = parts[0].trim();
+                    const changes = parts[1].trim();
+
+                    const tr = document.createElement("tr");
+
+                    const versionTd = document.createElement("td");
+                    versionTd.textContent = version;
+                    tr.appendChild(versionTd);
+
+                    const changesTd = document.createElement("td");
+                    changesTd.textContent = changes;
+                    tr.appendChild(changesTd);
+
+                    tableBody.appendChild(tr);
+                });
+            } catch (error) {
+                console.error(error);
+                document.getElementById("update-table").innerHTML = "<tr><td colspan='2'>Güncellemeler yüklenemedi.</td></tr>";
+            }
+        }
+
+        loadUpdates();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("contextmenu", function (event) {
+                event.preventDefault();
+            });
+
+            document.addEventListener("selectstart", function (event) {
+                event.preventDefault();
+            });
+
+            document.addEventListener("copy", function (event) {
+                event.preventDefault();
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (
+                    (event.ctrlKey && (event.key === "u" || event.key === "U")) ||
+                    (event.ctrlKey && event.shiftKey && (event.key === "i" || event.key === "I")) ||
+                    (event.ctrlKey && event.shiftKey && (event.key === "j" || event.key === "J")) ||
+                    (event.ctrlKey && event.key === "s") ||
+                    (event.ctrlKey && event.key === "c")
+                ) {
+                    event.preventDefault();
+                }
+            });
+        });
+
+        function showInfo() {
+            alert("Exploitler kısmına tıkladınız! Burada exploitlerin detaylarını görebileceksiniz.");
+        }
+    </script>
 </body>
 </html>
