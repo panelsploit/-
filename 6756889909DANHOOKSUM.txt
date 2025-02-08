@@ -1,0 +1,6 @@
+[1.3]|Yeni exploitler eklendi, payloadlar geliştirildi, GUI güncellendi.
+[1.2]|Hata düzeltmeleri yapıldı, yeni özellikler eklendi.
+[1.1]|Framework yapısı oluşturuldu.
+[1.0]|İlk sürüm yayınlandı.
+
+[!] BU SAYFADA SANA GÖRE BİRŞEY YOK AMA GELDİĞİNE GÖRE BİRŞEYLERİ MERAK EDİYOR GİBİSİN
